@@ -1,0 +1,14 @@
+{
+  "name": "stiltwalker-net",
+  "version": "1.0.0",
+  "description": "StiltWalker.net — National Stilt Walker Booking Directory, Practitioner Gear Reviews, Performer Insurance & Safety Toolkit",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "node scripts/build.js && node scripts/dev.js",
+    "ops": "node scripts/ops-check.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

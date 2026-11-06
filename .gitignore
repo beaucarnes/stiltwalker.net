@@ -1,0 +1,6 @@
+.DS_Store
+node_modules/
+dist/
+ops/submissions.jsonl
+.wrangler/
+.env

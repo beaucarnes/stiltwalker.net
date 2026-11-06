@@ -1,0 +1,68 @@
+{
+  "site": {
+    "domain": "stiltwalker.net",
+    "url": "https://stiltwalker.net",
+    "brandName": "StiltWalker.net",
+    "tagline": "America's Stilt Walker Directory, Gear Lab & Performer Toolkit",
+    "contactEmail": "hello@stiltwalker.net",
+    "domainExpiryDate": "2026-12-04",
+    "analytics": {
+      "cloudflareBeaconToken": "",
+      "ga4MeasurementId": ""
+    }
+  },
+  "founder": {
+    "name": "Beau Carnes",
+    "title": "Founder & Stilt Walker",
+    "headline": "Built by an Actual Stilt Walker — Not a Faceless Gig Conglomerate",
+    "shortBio": "I've strapped up, ducked through 8-foot green-room doorways, felt cheap 1-inch ankle straps dig in during hour two of an outdoor parade, and watched generic gig sites charge performers 15% fees without even asking a venue's ceiling height.",
+    "storyParagraphs": [
+      "When you actually walk on stilts, you notice things software companies miss. You know why a sturdy, armless chair in the staging area isn't a 'diva request'—it's how you mount safely without wrenching a knee. You know what happens when a 18 mph wind gust catches a set of Isis wings, or why slick hotel ballroom marble requires fresh non-marking rubber soles.",
+      "I started StiltWalker.net to give event planners a smarter way to book vetted stilt performers filtered by real physical specs (ceiling clearance, stilt apparatus, COI insurance, and act style)—and to give fellow stilt walkers, haunt actors, and builders honest gear reviews and fair 0%-commission bookings."
+    ],
+    "credentials": [
+      "Real-world stilt walking & live crowd experience",
+      "0% booking commission for fellow performers",
+      "Field-tested safety, strap & clearance standards"
+    ]
+  },
+  "affiliates": {
+    "amazonAssociateTag": "stiltwalkernet-20",
+    "thimbleInsuranceUrl": "https://www.thimble.com/entertainer-insurance?utm_source=stiltwalker.net&utm_medium=affiliate",
+    "insuranceCanopyUrl": "https://www.insurancecanopy.com/performer-insurance?utm_source=stiltwalker.net&utm_medium=referral",
+    "nextInsuranceUrl": "https://www.nextinsurance.com/business/entertainers-insurance/?utm_source=stiltwalker.net&utm_medium=affiliate",
+    "barkBackfillUrl": "https://www.bark.com/en/us/entertainers/?utm_source=stiltwalker.net&utm_medium=affiliate",
+    "etsyCostumesUrl": "https://www.etsy.com/search?q=stilt+walker+costume+mirror+suit&utm_source=stiltwalker.net",
+    "renegadeStiltsUrl": "https://www.renegadejuggling.com/circus-equipment/walking-globe-stilts/?utm_source=stiltwalker.net",
+    "stiltsComUrl": "https://stilts.com/?utm_source=stiltwalker.net"
+  },
+  "products": {
+    "featuredProMonthly": {
+      "name": "Featured Pro Performer Membership (Monthly)",
+      "price": 19,
+      "billing": "/month",
+      "checkoutUrl": "/join/?plan=pro-monthly#onboarding-form",
+      "stripePaymentLink": ""
+    },
+    "featuredProAnnual": {
+      "name": "Featured Pro Performer Membership (Annual)",
+      "price": 179,
+      "billing": "/year",
+      "checkoutUrl": "/join/?plan=pro-annual#onboarding-form",
+      "stripePaymentLink": ""
+    },
+    "contractRiderPack": {
+      "name": "Pro Stilt Walker Contract, Liability Waiver & Venue Safety Rider Pack",
+      "price": 24,
+      "checkoutUrl": "/contract-rider/#buy-pack",
+      "stripePaymentLink": ""
+    },
+    "hauntSafetySop": {
+      "name": "Haunted Attraction Stilt Actor Fall-Protocol & Pre-Shift Inspection SOP",
+      "priceActor": 29,
+      "priceVenue": 99,
+      "checkoutUrl": "/contract-rider/#haunt-sop",
+      "stripePaymentLink": ""
+    }
+  }
+}
