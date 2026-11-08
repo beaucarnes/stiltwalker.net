@@ -96,6 +96,11 @@ function renderLayout({ title, description, route, activeNav, schemaJson, bodyHt
       ? `<meta name="google-site-verification" content="${esc(config.site.analytics.googleSiteVerification)}" />`
       : ""
   }
+  ${
+    config.site.analytics.bingSiteVerification
+      ? `<meta name="msvalidate.01" content="${esc(config.site.analytics.bingSiteVerification)}" />`
+      : ""
+  }
   <link rel="stylesheet" href="/css/styles.css" />
   ${schemaJson ? `<script type="application/ld+json">${JSON.stringify(schemaJson)}</script>` : ""}
   ${analyticsSnippet}

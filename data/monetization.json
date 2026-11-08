@@ -9,7 +9,8 @@
     "analytics": {
       "cloudflareBeaconToken": "",
       "ga4MeasurementId": "",
-      "googleSiteVerification": "X7q8g8PoYUTLYdeA2RZKIA_KMD5doJAcyRczmT95DdM"
+      "googleSiteVerification": "X7q8g8PoYUTLYdeA2RZKIA_KMD5doJAcyRczmT95DdM",
+      "bingSiteVerification": "61FE2891E85EE5BFAFB4439A30F24072"
     }
   },
   "founder": {
