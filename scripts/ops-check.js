@@ -6,6 +6,7 @@
 const fs = require("fs");
 const path = require("path");
 const https = require("https");
+const { runConcierge } = require("./concierge-outreach");
 
 const ROOT = path.resolve(__dirname, "..");
 const config = JSON.parse(fs.readFileSync(path.join(ROOT, "data/monetization.json"), "utf8"));
@@ -86,4 +87,5 @@ function checkLiveUrl(url) {
     )} cap ($${(ledger.monthlyCapUsd - ledger.currentMonthAllocatedUsd).toFixed(2)} reserve)`
   );
   console.log(`Current Monthly Rev:  $${ledger.currentMonthRevenueUsd.toFixed(2)} (Target 90-day break-even: $57.00/mo = 3 Pro members)`);
+  runConcierge();
 })();

@@ -330,10 +330,14 @@
         const formKind = form.dataset.asyncForm;
         if (formKind === "quote") {
           const barkUrl = form.dataset.barkUrl || "https://www.bark.com/en/us/entertainers/";
+          const cityName = payload.city || "your metro area";
           statusBox.innerHTML =
-            `<strong>Quote Request Received!</strong> We're matching your event specs (${payload.city || "your area"}) with vetted stilt walkers. ` +
-            `Need urgent same-day availability quotes from additional local agencies too? ` +
-            `<a href="${barkUrl}" target="_blank" rel="noopener sponsored" style="text-decoration:underline;font-weight:800;">Compare instant backup quotes via our partner network →</a>`;
+            `<strong>✓ Quote Request Dispatched for ${cityName}!</strong><br/>` +
+            `<span style="display:block;margin-top:0.35rem;font-size:0.9rem;">` +
+            `<strong>1. Direct Performer Concierge Outreach:</strong> We've queued your exact event specs (${payload.eventType || "Event"}, ${payload.venueSpec || "Ceiling Verified"}) and are reaching out directly to vetted local stilt walkers &amp; circus troupes in <strong>${cityName}</strong> so available performers can quote you with 0% markup.<br/>` +
+            `<strong>2. Want Instant Multi-Agency Quotes Right Now?</strong> Compare immediate backup availability from local event pros while we contact independent stilt walkers:` +
+            `</span>` +
+            `<div style="margin-top:0.65rem;"><a href="${barkUrl}" target="_blank" rel="noopener sponsored" class="btn btn-dark btn-sm">Get Instant Backup Quotes via Partner Network →</a></div>`;
         } else if (formKind === "performer") {
           const checkoutHtml =
             payload.tier === "pro-annual"

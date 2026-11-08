@@ -13,6 +13,7 @@ const PUBLIC_DIR = path.join(ROOT, "public");
 const config = JSON.parse(fs.readFileSync(path.join(ROOT, "data/monetization.json"), "utf8"));
 const cities = JSON.parse(fs.readFileSync(path.join(ROOT, "data/cities.json"), "utf8"));
 const gearGuides = JSON.parse(fs.readFileSync(path.join(ROOT, "data/gear-guides.json"), "utf8"));
+const seedPerformers = JSON.parse(fs.readFileSync(path.join(ROOT, "data/seed-performers.json"), "utf8"));
 
 // Detect real founder photos dropped into public/images/founder/
 const founderDir = path.join(PUBLIC_DIR, "images/founder");
@@ -859,6 +860,38 @@ function buildHirePages() {
                 ${c.popularThemes.map((t) => `<li>${esc(t)}</li>`).join("")}
               </ul>
             </div>
+
+            ${(() => {
+              const matchedRoster = seedPerformers.filter((p) => p.cities.includes(c.slug));
+              const rosterToRender = matchedRoster.length ? matchedRoster : seedPerformers.slice(0, 2);
+              return `
+            <div class="card" style="margin-bottom:1.5rem;">
+              <span class="badge badge-emerald" style="margin-bottom:0.6rem;">${esc(c.city)} Regional Roster &amp; Concierge Dispatch</span>
+              <h3 style="margin:0 0 0.5rem;font-size:1.25rem;">Regional Stilt Acts &amp; 24-Hr Performer Concierge</h3>
+              <p style="margin:0 0 1rem;font-size:0.9rem;color:var(--text-muted);">
+                When you request a quote in ${esc(c.city)}, we match you with verified regional stilt performers AND our Performer Concierge reaches out directly to local ${esc(c.city)} stilt walkers &amp; circus troupes with your venue specs (0% agency markup):
+              </p>
+              <div style="display:grid;gap:0.75rem;">
+                ${rosterToRender
+                  .map(
+                    (act) => `
+                <div style="padding:0.85rem;border:1px solid var(--border-light);border-radius:10px;background:var(--bg-subtle);">
+                  <div style="display:flex;justify-content:space-between;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.3rem;">
+                    <strong style="font-size:0.96rem;">${esc(act.name)}</strong>
+                    <span class="badge" style="font-size:0.72rem;">${esc(act.rateRange)}</span>
+                  </div>
+                  <div style="font-size:0.83rem;color:var(--text-muted);margin-bottom:0.35rem;">
+                    <strong>Apparatus:</strong> ${esc(act.apparatus)} • <strong>Min Ceiling:</strong> ${act.minCeilingFt} ft
+                  </div>
+                  <div style="font-size:0.82rem;color:var(--text-dark);">
+                    <strong>Specialties:</strong> ${act.specialties.map((s) => esc(s)).join(" • ")}
+                  </div>
+                </div>`
+                  )
+                  .join("")}
+              </div>
+            </div>`;
+            })()}
 
             <div class="card" style="background:#fffbeb;border-color:var(--gold);">
               <span class="badge" style="margin-bottom:0.5rem;">Open Founding Featured Slot — ${esc(cityFull)}</span>
