@@ -140,7 +140,9 @@
           costume: costume,
           budget: `$${lowEst}-$${highEst}`
         });
-        prefillQuoteBtn.setAttribute("href", `/hire/?${params.toString()}#quote-form`);
+        const baseHref = (prefillQuoteBtn.dataset.baseHref || prefillQuoteBtn.getAttribute("href") || "./hire/").split("?")[0].split("#")[0];
+        prefillQuoteBtn.dataset.baseHref = baseHref;
+        prefillQuoteBtn.setAttribute("href", `${baseHref}?${params.toString()}#quote-form`);
       }
     }
 

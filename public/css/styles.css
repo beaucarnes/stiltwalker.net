@@ -549,7 +549,7 @@ a {
   padding: 2.75rem;
   border: 1px solid rgba(246, 196, 83, 0.28);
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-columns: 1.05fr 0.95fr;
   gap: 2.5rem;
   align-items: center;
   box-shadow: var(--shadow-lg);
@@ -558,17 +558,46 @@ a {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(246, 196, 83, 0.3);
   border-radius: var(--radius-md);
-  padding: 1.35rem;
+  padding: 1.1rem;
 }
 .founder-photo-grid {
   display: grid;
-  gap: 0.85rem;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 0.75rem;
 }
-.founder-photo-grid img {
+.founder-photo-main {
+  grid-row: span 2;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.founder-photo-main img {
   width: 100%;
-  border-radius: 10px;
+  height: 100%;
+  max-height: 410px;
   object-fit: cover;
-  max-height: 360px;
+  object-position: center top;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.founder-photo-sub {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.founder-photo-sub img {
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.founder-caption {
+  font-size: 0.74rem;
+  color: var(--gold-bright);
+  margin-top: 0.32rem;
+  font-weight: 600;
 }
 .founder-quote-card {
   background: rgba(9, 13, 26, 0.65);

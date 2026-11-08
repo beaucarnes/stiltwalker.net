@@ -50,11 +50,20 @@ function copyDirRecursive(src, dest) {
 
 const builtUrls = [];
 
+function relativizeHtml(html, cleanRoute) {
+  const depth = cleanRoute ? cleanRoute.split("/").filter(Boolean).length : 0;
+  const prefix = depth === 0 ? "." : Array(depth).fill("..").join("/");
+  return html.replace(/(href|src)="\/([^"]*)"/g, (_, attr, rest) => {
+    if (rest.startsWith("/")) return `${attr}="/${rest}"`;
+    return `${attr}="${prefix}/${rest}"`;
+  });
+}
+
 function writePage(routePath, html) {
   const cleanRoute = routePath.replace(/^\/+|\/+$/g, "");
   const outFile = cleanRoute ? path.join(DIST, cleanRoute, "index.html") : path.join(DIST, "index.html");
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
-  fs.writeFileSync(outFile, html, "utf8");
+  fs.writeFileSync(outFile, relativizeHtml(html, cleanRoute), "utf8");
   const canonicalUrl = cleanRoute ? `${config.site.url}/${cleanRoute}/` : `${config.site.url}/`;
   builtUrls.push(canonicalUrl);
 }
@@ -176,14 +185,37 @@ function renderLayout({ title, description, route, activeNav, schemaJson, bodyHt
 
 // Reusable Founder Section (E-E-A-T + Relatable Creator Story)
 function renderFounderSection() {
+  const configuredPhotos =
+    Array.isArray(config.founder.photos) && config.founder.photos.length > 0
+      ? config.founder.photos
+      : founderPhotos.map((src, i) => ({
+          src,
+          caption: `Beau Carnes walking on stilts (${i + 1})`,
+          alt: `${config.founder.name} walking on stilts (${i + 1})`
+        }));
+
   const photoMarkup =
-    founderPhotos.length > 0
+    configuredPhotos.length >= 3
       ? `<div class="founder-photo-grid">
-          ${founderPhotos
-            .slice(0, 2)
+          <figure class="founder-photo-main">
+            <img src="${esc(configuredPhotos[0].src)}" alt="${esc(configuredPhotos[0].alt)}" loading="lazy" />
+            <figcaption class="founder-caption">${esc(configuredPhotos[0].caption)}</figcaption>
+          </figure>
+          <figure class="founder-photo-sub">
+            <img src="${esc(configuredPhotos[1].src)}" alt="${esc(configuredPhotos[1].alt)}" loading="lazy" />
+            <figcaption class="founder-caption">${esc(configuredPhotos[1].caption)}</figcaption>
+          </figure>
+          <figure class="founder-photo-sub">
+            <img src="${esc(configuredPhotos[2].src)}" alt="${esc(configuredPhotos[2].alt)}" loading="lazy" />
+            <figcaption class="founder-caption">${esc(configuredPhotos[2].caption)}</figcaption>
+          </figure>
+        </div>`
+      : configuredPhotos.length > 0
+      ? `<div class="founder-photo-grid">
+          ${configuredPhotos
             .map(
-              (src, idx) =>
-                `<img src="${esc(src)}" alt="${esc(config.founder.name)} walking on stilts (${idx + 1})" loading="lazy" />`
+              (p) =>
+                `<figure class="founder-photo-sub"><img src="${esc(p.src)}" alt="${esc(p.alt)}" loading="lazy" /><figcaption class="founder-caption">${esc(p.caption)}</figcaption></figure>`
             )
             .join("")}
         </div>`
