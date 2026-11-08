@@ -335,9 +335,15 @@
             `Need urgent same-day availability quotes from additional local agencies too? ` +
             `<a href="${barkUrl}" target="_blank" rel="noopener sponsored" style="text-decoration:underline;font-weight:800;">Compare instant backup quotes via our partner network →</a>`;
         } else if (formKind === "performer") {
+          const checkoutHtml =
+            payload.tier === "pro-annual"
+              ? ` <br/><br/><a href="https://buy.stripe.com/3cIcN48gM22ZgNzbFcbo40d" target="_blank" rel="noopener" class="btn btn-gold btn-sm">Complete $179/yr Featured Pro Activation →</a>`
+              : payload.tier === "pro-monthly"
+              ? ` <br/><br/><a href="https://buy.stripe.com/14A3cu8gM7njbtfeRobo40a" target="_blank" rel="noopener" class="btn btn-gold btn-sm">Complete $19/mo Featured Pro Activation →</a>`
+              : "";
           statusBox.innerHTML =
             `<strong>Welcome to StiltWalker.net, ${payload.stageName || "Performer"}!</strong> Your directory profile application is queued for verification. ` +
-            `Don't forget to grab your <strong>Verified Backlink Badge</strong> below to boost your city ranking!`;
+            `Don't forget to grab your <strong>Verified Backlink Badge</strong> below to boost your city ranking!${checkoutHtml}`;
         } else {
           statusBox.innerHTML =
             `<strong>Sent!</strong> Your free 1-Page Stilt Venue Safety Checklist is unlocked—you can also copy or print the customized rider above right now.`;

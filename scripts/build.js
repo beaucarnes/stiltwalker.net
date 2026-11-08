@@ -91,6 +91,11 @@ function renderLayout({ title, description, route, activeNav, schemaJson, bodyHt
   <meta property="og:url" content="${esc(canonical)}" />
   <meta property="og:image" content="${config.site.url}/images/hero-stiltwalker.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
+  ${
+    config.site.analytics.googleSiteVerification
+      ? `<meta name="google-site-verification" content="${esc(config.site.analytics.googleSiteVerification)}" />`
+      : ""
+  }
   <link rel="stylesheet" href="/css/styles.css" />
   ${schemaJson ? `<script type="application/ld+json">${JSON.stringify(schemaJson)}</script>` : ""}
   ${analyticsSnippet}
@@ -1434,7 +1439,10 @@ function buildJoinPage() {
             <li>Direct website, Instagram Reel &amp; phone click-to-call links</li>
             <li>Includes our <strong>$24 Pro Stilt Contract &amp; Safety Rider Pack FREE</strong></li>
           </ul>
-          <a href="?plan=pro-monthly#onboarding-form" class="btn btn-gold">Claim Featured Pro Spot →</a>
+          <div style="display:grid;gap:0.55rem;">
+            <a href="${esc(config.products.featuredProMonthly.stripePaymentLink || "?plan=pro-monthly#onboarding-form")}" target="_blank" rel="noopener" class="btn btn-gold">Subscribe $19/mo (Instant Checkout) →</a>
+            <a href="${esc(config.products.featuredProAnnual.stripePaymentLink || "?plan=pro-annual#onboarding-form")}" target="_blank" rel="noopener" class="btn btn-dark btn-sm">Or Save 21%: $179/yr Annual Plan →</a>
+          </div>
         </div>
       </div>
 

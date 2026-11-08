@@ -8,7 +8,8 @@
     "domainExpiryDate": "2026-12-04",
     "analytics": {
       "cloudflareBeaconToken": "",
-      "ga4MeasurementId": ""
+      "ga4MeasurementId": "",
+      "googleSiteVerification": "X7q8g8PoYUTLYdeA2RZKIA_KMD5doJAcyRczmT95DdM"
     }
   },
   "founder": {
@@ -58,28 +59,28 @@
       "name": "Featured Pro Performer Membership (Monthly)",
       "price": 19,
       "billing": "/month",
-      "checkoutUrl": "/join/?plan=pro-monthly#onboarding-form",
-      "stripePaymentLink": ""
+      "checkoutUrl": "https://buy.stripe.com/14A3cu8gM7njbtfeRobo40a",
+      "stripePaymentLink": "https://buy.stripe.com/14A3cu8gM7njbtfeRobo40a"
     },
     "featuredProAnnual": {
       "name": "Featured Pro Performer Membership (Annual)",
       "price": 179,
       "billing": "/year",
-      "checkoutUrl": "/join/?plan=pro-annual#onboarding-form",
-      "stripePaymentLink": ""
+      "checkoutUrl": "https://buy.stripe.com/3cIcN48gM22ZgNzbFcbo40d",
+      "stripePaymentLink": "https://buy.stripe.com/3cIcN48gM22ZgNzbFcbo40d"
     },
     "contractRiderPack": {
       "name": "Pro Stilt Walker Contract, Liability Waiver & Venue Safety Rider Pack",
       "price": 24,
-      "checkoutUrl": "/contract-rider/#buy-pack",
-      "stripePaymentLink": ""
+      "checkoutUrl": "https://buy.stripe.com/00wcN4eFabDzfJv4cKbo40b",
+      "stripePaymentLink": "https://buy.stripe.com/00wcN4eFabDzfJv4cKbo40b"
     },
     "hauntSafetySop": {
       "name": "Haunted Attraction Stilt Actor Fall-Protocol & Pre-Shift Inspection SOP",
       "priceActor": 29,
       "priceVenue": 99,
-      "checkoutUrl": "/contract-rider/#haunt-sop",
-      "stripePaymentLink": ""
+      "checkoutUrl": "https://buy.stripe.com/6oU4gyfJefTPdBn4cKbo40c",
+      "stripePaymentLink": "https://buy.stripe.com/6oU4gyfJefTPdBn4cKbo40c"
     }
   }
 }
