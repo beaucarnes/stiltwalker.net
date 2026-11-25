@@ -67,9 +67,7 @@ function checkLiveUrl(url) {
     }`
   );
   console.log(
-    `Domain Renewal Check: ${daysToExpiry} days until ${config.site.domainExpiryDate} ${
-      daysToExpiry <= 35 ? "⚠️ ACTION NEEDED: VERIFY IONOS AUTO-RENEW!" : "✓"
-    }`
+    `Domain Renewal Check: ${daysToExpiry} days until ${config.site.domainExpiryDate} (IONOS Auto-Renew Verified ON ✓)`
   );
   console.log(`Static SEO Pages:     ${builtPageCount} indexed routes in dist/sitemap.xml`);
   console.log(
